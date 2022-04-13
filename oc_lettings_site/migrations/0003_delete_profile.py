@@ -6,18 +6,18 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('oc_lettings_site', '0002_auto_20211214_1029'),
+        ("oc_lettings_site", "0002_auto_20211214_1029"),
     ]
 
     operations = [
-    	migrations.SeparateDatabaseAndState(
-    		database_operations=[
-    			migrations.AlterModelTable('Profile', 'profiles_profile'),
-    		],
-    		state_operations=[
-		        migrations.DeleteModel(
-		            name='Profile',
-		        ),
-    		],
-    	),
+        migrations.SeparateDatabaseAndState(
+            database_operations=[
+                migrations.AlterModelTable("Profile", "profiles_profile"),
+            ],
+            state_operations=[
+                migrations.DeleteModel(
+                    name="Profile",
+                ),
+            ],
+        ),
     ]
