@@ -7,7 +7,7 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/python:3.10.4
-    working_directory:
+    #working_directory:
     steps:
       - checkout
       - python/install-packages:
