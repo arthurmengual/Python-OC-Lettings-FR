@@ -28,6 +28,7 @@ class TestLettings:
         assert response.context["lettings_list"][0] == lettings_fixture
         assert response.status_code == 200
         assertTemplateUsed(response, "lettings/index.html")
+        assert b'<title>Lettings</title>' in response.content
 
     def test_letting(self, client, lettings_fixture):
         """This test ..."""
@@ -38,3 +39,5 @@ class TestLettings:
         assert response.context["address"] == lettings_fixture.address
         assert response.status_code == 200
         assertTemplateUsed(response, "lettings/letting.html")
+        assert b'<title>title</title>' in response.content
+        # comment faire un genre de f string avec b'

@@ -29,7 +29,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/arthur/openclass/P13/new_version/Python-OC-Lettings-FR/env"
+set -gx VIRTUAL_ENV "/home/arthur/openclass/P13/Project/Python-OC-Lettings-FR/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

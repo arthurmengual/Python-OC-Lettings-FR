@@ -1,4 +1,4 @@
-#!/home/arthur/openclass/P13/new_version/Python-OC-Lettings-FR/env/bin/python3
+#!/home/arthur/openclass/P13/Project/Python-OC-Lettings-FR/env/bin/python
 from django.core import management
 
 if __name__ == "__main__":

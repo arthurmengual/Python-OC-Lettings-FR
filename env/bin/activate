@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/arthur/openclass/P13/new_version/Python-OC-Lettings-FR/env"
+VIRTUAL_ENV="/home/arthur/openclass/P13/Project/Python-OC-Lettings-FR/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

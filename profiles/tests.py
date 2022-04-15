@@ -22,6 +22,7 @@ class TestLettings:
         assert response.context["profiles_list"][0] == profiles_fixture
         assert response.status_code == 200
         assertTemplateUsed(response, "profiles/index.html")
+        assert b'<title>Profiles</title>' in response.content
 
     def test_profile(self, client, profiles_fixture):
         """This test ..."""
@@ -33,3 +34,4 @@ class TestLettings:
         assert response.context["profile"] == profiles_fixture
         assert response.status_code == 200
         assertTemplateUsed(response, "profiles/profile.html")
+        assert b'<title>TestClient</title>' in response.content

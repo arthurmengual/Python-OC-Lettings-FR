@@ -9,3 +9,4 @@ class TestOcLettingSite:
         response = client.get(reverse("index"))
         assert response.status_code == 200
         assertTemplateUsed(response, "index.html")
+        assert b'<title>Holiday Homes</title>' in response.content
