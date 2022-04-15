@@ -1,16 +1,16 @@
 version: 2.1
 
-orbs: 
+orbs:
   python: circleci/python@2.0.3
 
 jobs:
   test:
     docker:
       - image: cimg/python:3.10.4
-    working_directory: 
+    working_directory:
     steps:
       - checkout
-      - python/install-packages
+      - python/install-packages:
         pkg-manager: pip
       - run:
           name: Tests
@@ -19,8 +19,6 @@ jobs:
           name: Linting
           command: flake8
 
-
 workflows:
   build-and-test:
-    jobs:
-      build-and-test
+    jobs: build-and-test
