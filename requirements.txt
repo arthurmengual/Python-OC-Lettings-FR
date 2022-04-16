@@ -3,7 +3,7 @@ attrs==21.4.0
 autopep8==1.6.0
 Django==3.0
 entrypoints==0.3
-flake8
+flake8==4.0.1
 iniconfig==1.1.1
 mccabe==0.6.1
 packaging==21.3

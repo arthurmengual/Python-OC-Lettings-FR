@@ -1,4 +1,4 @@
-from flake8.main import main
+"""Module allowing for ``python -m flake8 ...``."""
+from flake8.main import cli
 
-# python -m flake8 (with Python >= 2.7)
-main()
+cli.main()
