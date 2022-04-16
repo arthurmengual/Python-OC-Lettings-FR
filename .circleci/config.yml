@@ -28,16 +28,17 @@ jobs:
       - run:
           name: Linting
           command: flake8
+  # deploy:
 
 workflows:
   build-and-test:
     jobs:
       - build-and-test
-  deploy:
-    jobs:
-      - deploy:
-        requires:
-          - test
-        filters:
-          branches:
-            - master
+  # deploy:
+  #   jobs:
+  #     - deploy:
+  #       requires:
+  #         - build-and-test
+  #       filters:
+  #         branches:
+  #           only: master
