@@ -43,8 +43,11 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - build-and-test
-  build-and-push:
+      - build-and-test:
+          filters:
+            branches:
+              ignore: master
+  build-and-push-and-deploy:
     jobs:
       - build-and-test
       - build-and-push:
