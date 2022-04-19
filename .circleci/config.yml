@@ -29,16 +29,16 @@ jobs:
           name: Linting
           command: flake8
 
-    build-and-push:
-      docker:
-        - image: cimg/python:3.8
-      steps:
-        - checkout
-        - setup_remote_docker
-        - run: |
-            echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-            docker build -t "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1" |
-            docker push "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
+  build-and-push:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: |
+          echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+          docker build -t "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1" |
+          docker push "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
 
 workflows:
   build-and-test:
@@ -46,4 +46,10 @@ workflows:
       - build-and-test
   build-and-push:
     jobs:
-      - build-and-push
+      - build-and-test
+      - build-and-push:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: master
