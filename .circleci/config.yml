@@ -43,7 +43,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - buid-and-test
+      - build-and-test
   build-and-push:
     jobs:
       - build-and-push:
