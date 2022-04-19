@@ -5,7 +5,7 @@ orbs:
   # Orb commands and jobs help you with common scripting around a language/tool
   # so you dont have to copy and paste it everywhere.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  python: circleci/python@1.5.0
+  python: circleci/python@2.0.3
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -15,7 +15,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       - image: cimg/python:3.10.4
-    working_directory: ~/project
+    working_directory: ~/openclass/P13/Project/Python-OC-Lettings-FR
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -28,17 +28,25 @@ jobs:
       - run:
           name: Linting
           command: flake8
-  # deploy:
+
+    build-and-push:
+        docker:
+          - image: cimg/python: 3.8
+        steps:
+          - checkout
+          - setup_remote_docker
+          - run: |
+              echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+              docker build -t "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1" |
+              docker push "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
 
 workflows:
   build-and-test:
     jobs:
-      - build-and-test
-  # deploy:
-  #   jobs:
-  #     - deploy:
-  #       requires:
-  #         - build-and-test
-  #       filters:
-  #         branches:
-  #           only: master
+      - buid-and-test
+      - build-and-push:
+          requires:
+            -  buid-and-test
+          filters:
+            branches:
+              only: master
