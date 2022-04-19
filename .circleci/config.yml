@@ -37,7 +37,7 @@ jobs:
       - setup_remote_docker
       - run: |
           echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-          docker build -t "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1" |
+          docker build -t "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1" .
           docker push "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
 
 workflows:
@@ -46,7 +46,6 @@ workflows:
       - build-and-test
   build-and-push:
     jobs:
-      - build-and-test
       - build-and-push:
           requires:
             - build-and-test
