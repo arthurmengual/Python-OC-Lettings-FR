@@ -46,6 +46,7 @@ workflows:
       - build-and-test
   build-and-push:
     jobs:
+      - build-and-test
       - build-and-push:
           requires:
             - build-and-test
