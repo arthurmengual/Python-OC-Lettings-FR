@@ -46,7 +46,7 @@ workflows:
       - buid-and-test
   build-and-push:
     jobs:
-      - build-and-push
+      - build-and-push:
           requires:
             - build-and-test
           filters:
