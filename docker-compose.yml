@@ -1,0 +1,10 @@
+version: '3'
+services:
+  mon_app:
+    image: docker_image
+    depends_on:
+      -xx 
+    ports: 
+     -8000:8000
+    networks:
+      -mon_reseau
