@@ -43,7 +43,7 @@ jobs:
   deploy:
     steps:
       - checkout
-      -setup_remote_docker
+      - setup_remote_docker
       - run:
           name: pushing to heroku
           command: |
