@@ -41,6 +41,7 @@ jobs:
           docker push "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
 
   deploy:
+    machine: true
     steps:
       - checkout
       - setup_remote_docker
