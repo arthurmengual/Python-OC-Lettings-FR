@@ -66,3 +66,12 @@ workflows:
           filters:
             branches:
               only: master
+  deploy:
+    jobs:
+      - build-and-push
+      - deploy:
+        requires:
+          - build-and-push
+        filters:
+          branches:
+            only: master
