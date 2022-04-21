@@ -1,8 +1,6 @@
 FROM python:3.8
 WORKDIR /app
 
-ENV PORT=8000
-
 ADD . /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
