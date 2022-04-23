@@ -30,4 +30,5 @@ def letting(request, letting_id):
         "title": letting.title,
         "address": letting.address,
     }
+    return 1//0
     return render(request, "lettings/letting.html", context)
