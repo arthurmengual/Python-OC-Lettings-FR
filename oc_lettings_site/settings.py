@@ -1,3 +1,4 @@
+import sentry_sdk
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -109,3 +110,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+sentry_sdk.init(
+    "https://df52a02e0926489aba0d43fbeab90584@o1178328.ingest.sentry.io/6358536",
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0
+)
