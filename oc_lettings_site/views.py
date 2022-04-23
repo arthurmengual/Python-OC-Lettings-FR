@@ -11,3 +11,7 @@ from django.shortcuts import render
 # non finibus neque cursus id.
 def index(request):
     return render(request, "index.html")
+
+
+def zero_div_error():
+    return 1//0
