@@ -55,24 +55,19 @@ jobs:
             HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a oc-lettings-site29 web
 
 workflows:
-  build-and-test:
-    jobs:
-      - build-and-test
-  build-and-push:
-    jobs:
-      - build-and-test
-      - build-and-push:
-          requires:
-            - build-and-test
-          filters:
-            branches:
-              only: master
-  deploy:
-    jobs:
-      - build-and-push
-      - deploy:
-          requires:
-            - build-and-push
-          filters:
-            branches:
-              only: master
+  jobs:
+    - build-and-test
+    - build-and-push:
+        requires:
+          - build-and-test
+        filters:
+          branches:
+            only: master
+    - deploy:
+        requires:
+          - build-and-push
+        filters:
+          branches:
+            only: master
+#sur heroku variables sentry key et dns
+#le readme sur le deploiement
