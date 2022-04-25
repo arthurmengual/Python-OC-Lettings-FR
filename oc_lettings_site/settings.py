@@ -111,11 +111,10 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-sentry_sdk.init(
-    "https://df52a02e0926489aba0d43fbeab90584@o1178328.ingest.sentry.io/6358536",
+sentry_sdk.init(os.environ.get('SENTRY_KEY'),
 
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0
-)
+                # Set traces_sample_rate to 1.0 to capture 100%
+                # of transactions for performance monitoring.
+                # We recommend adjusting this value in production.
+                traces_sample_rate=1.0
+                )
