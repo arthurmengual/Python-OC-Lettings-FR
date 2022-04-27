@@ -70,5 +70,3 @@ workflows:
           filters:
             branches:
               only: master
-#definition sur el ppt
-#explication procfile
