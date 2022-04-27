@@ -88,7 +88,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Le pipeline circleci est réalisé grace à la configuration du fichier config.yml. Ce dernier détaille les étapes qui seront effectuées à chaque push d'une modification du code. Test et linting du code, creation d'une image docker et push de l'image sur docker hub. Pull de l'image et déploiement grâce à Heroku. Seul les push sur la branche master seront conteneurisé et déployés.
 
-**\***les étapes nécessaires pour effectuer le déploiement**\***
+**\***les étapes nécessaires pour effectuer le déploiement **\***
 1 - CircleCI: rendez vous sur l'application circleci et connectez votre repository github à votre espace circleci.
 
 - Choisissez dans vos projet le projet que vous souhaitez déployer.
