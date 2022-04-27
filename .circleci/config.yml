@@ -70,6 +70,5 @@ workflows:
           filters:
             branches:
               only: master
-#sur heroku variables sentry key et dns
-#le readme sur le deploiement
 #definition sur el ppt
+#explication procfile
